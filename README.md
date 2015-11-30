@@ -25,5 +25,5 @@ emailClients['Apple Mail 6.5'].hasFullSupportFor('RGBA Colors');
 
 ## TODO
 
-[ ] Clean up '+' at the end of some client headers
-[ ] Clean up 'CSS3' at the end of some feature names
+- Clean up '+' at the end of some client headers
+- Clean up 'CSS3' at the end of some feature names
