@@ -1,6 +1,7 @@
 (ns scrape.main
   (:require [net.cgrand.enlive-html :as html]
             [clojure.data.json :as json]
+            [clojure.string :as string]
             [clojure.core.matrix :as matrix]))
 
 (def base-url "https://www.campaignmonitor.com/css/")
@@ -19,10 +20,20 @@
   [url]
   (html/html-resource (java.net.URL. url)))
 
+(defn clean-text
+  "Clean text using some rough, hacky rules custom to this table."
+  [text]
+  (string/trim
+    (string/replace
+      (string/replace text #"CSS3$" "")
+      #"\+$" "")))
+
 (defn extract-text
   "Extract text vector, given a resource and selector."
   [html-resource selector]
-  (mapv html/text (html/select html-resource selector)))
+  (mapv clean-text
+        (mapv html/text
+              (html/select html-resource selector))))
 
 (defn extract-matrix
   "Extract 2D vector matrix, given a resource, partition length, and selector."

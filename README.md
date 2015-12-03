@@ -22,8 +22,3 @@ emailClients['Outlook 2007/10/13'].hasFullSupportFor('E F');
 emailClients['iPhone iOS 7/iPad'].hasFullSupportFor('font-family');
 emailClients['Apple Mail 6.5'].hasFullSupportFor('RGBA Colors');
 ```
-
-## TODO
-
-- Clean up '+' at the end of some client headers
-- Clean up 'CSS3' at the end of some feature names
